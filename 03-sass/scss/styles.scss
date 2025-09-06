@@ -1,3 +1,4 @@
+
 // ========================================
 // 🟡 SASS DEBUGGING CHALLENGE (60 minutes)
 // ========================================
@@ -16,10 +17,13 @@
 // ========== DIAGNOSTIC SECTION (30 minutes) ==========
 // Find and fix 10 SASS issues below
 
+
 // 🔧 DIAGNOSTIC ISSUE #1: Wrong variable syntax
 // PROBLEM: SASS variables should start with $ not -
 // FIX: Change -primary-yellow to $primary-yellow
--primary-yellow: #FFD700;
+@import 'partials/forms';
+
+$primary-yellow: #FFD700;
 $submarine-blue: #1E3A8A;
 $ocean-green: #059669;
 $coral-pink: #F472B6;
@@ -33,19 +37,19 @@ $deep-purple: #7C3AED;
     margin: 0 auto;
     padding: 0 1rem;
 
+}
     @media (max-width: 768px) {
         .nested-class {
             display: none;
         }
     }
-}
 
 // 🔧 DIAGNOSTIC ISSUE #3: Missing semicolon in mixin
 // PROBLEM: SASS mixins need semicolons after each property
 // FIX: Add semicolon after "border-radius: 8px"
 @mixin card-style {
     background: white;
-    border-radius: 8px
+    border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 1.5rem;
 }
@@ -54,7 +58,7 @@ $deep-purple: #7C3AED;
 // PROBLEM: Using @include wrong - should be @include not @mixin
 // FIX: Change @mixin to @include
 .voyage-card {
-    @mixin card-style;
+    @include card-style;
     transition: transform 0.3s ease;
 
     &:hover {
@@ -66,7 +70,7 @@ $deep-purple: #7C3AED;
 // PROBLEM: Using $underfined--color that doesn't exist
 // FIX: Use one of the defined color variables like $submarine-blue
 .main-header {
-    background: $underfined-color;
+    background: $submarine-blue;
     color: white;
     padding: 1rem 0;
 
@@ -98,7 +102,7 @@ $deep-purple: #7C3AED;
         // 🔧 DIAGNOSTIC ISSUE #6: Wrong ampersand usage
         // PROBLEM: &--hover should be &:hover for pseudo-classes
         // FIX: Change &--hover to &:hover
-        &-hover {
+        &:hover {
             background-color: rgba(255, 255, 255, 0.2);
         }
     }
@@ -108,8 +112,13 @@ $deep-purple: #7C3AED;
 .hero-section {
     background: linear-gradient(135deg, $primary-yellow 0%, #FFA500 100%);
     padding: 4rem 0;
-    text-align: center;
+    text-align: start;
 
+    .container{
+        display: flex;
+        gap: 3rem;
+        align-items: center;
+    }
     .hero-title {
         font-size: 3rem;
         color: $submarine-blue;
@@ -118,9 +127,9 @@ $deep-purple: #7C3AED;
         // 🔧 DIAGNOSTIC ISSUE #7: Invalid selector nesting
         // PROBLEM: You can't nest regular CSS selectors with & like this
         // FIX: Remove the & or restructure the nesting properly
-        & + p.subtitle {
-            & + div {
-                & span {
+        p.subtitle {
+            div {
+                span {
                     color: red;
                 }
             }
@@ -138,7 +147,7 @@ $deep-purple: #7C3AED;
 // 🔧 DIAGNOSTIC ISSUE #8: Wrong function syntax
 // PROBLEM: SASS functions use @function not @mixin
 // FIX: Change @mixin to @function
-@mixin calculate-spacing($base: 1rem) {
+@function calculate-spacing($base: 1rem) {
     @return $base * 1.5;
 }
 
@@ -171,8 +180,8 @@ $deep-purple: #7C3AED;
     margin: 2rem auto;
 
     .submarine-body {
-        width: 100%;
-        height: 80px;
+        width: 80%;
+        height: 50px;
         background: $primary-yellow;
         border-radius: 40px;
         position: relative;
@@ -180,22 +189,56 @@ $deep-purple: #7C3AED;
         // 🔧 DIAGNOSTIC ISSUE #9: Wrong @extend syntax
         // PROBLEM: @extend should reference a selector, not a mixin
         // FIX: Either create a placeholder selector or use @include with mixin
-        @extend calculate-spacing;
+        padding:calculate-spacing(1rem);
     }
 }
 
-// Voyage cards grid
-.voyage-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+
+// Voyage cards grid nested in  voyage-section container
+.voyages-section {
+    .container{
+        text-align: center;
+        line-height: 2rem;
+
+        .section-title{
+            color: $submarine-blue;
+            font-size: 2rem;
+        }
+    }
+
+    .voyage-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+    .voyage-icon {
+        font-size: 2rem;
+    }
+    .voyage-title {
+        color: $submarine-blue;
+    }
+    .voyage-button {
+        background-color: $primary-yellow;
+        padding: calculate-spacing();
+        border: none;
+        border-radius: 25px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+            &:hover{
+                background: darken($primary-yellow, 10%);
+                transform: scale(1.05);
+            }
+    }
 }
 
 // 🔧 DIAGNOSTIC ISSUE #10: Import statement in wrong place
 // PROBLEM: @import should be at the top of the file
 // FIX: Move this import to the top of the file
-@import 'partials/forms';
+
 
 .voyage-features {
     list-style: none;
@@ -281,6 +324,11 @@ Focus on: SASS organization, theming, and creative effects
         font-weight: 600;
         margin-bottom: 1rem;
     }
+    .crew-bio {
+        color: $submarine-blue;
+        line-height: 2rem;
+        font-size: 1rem;
+    }
 }
 
 // TODO: Improve the booking form design
@@ -295,6 +343,10 @@ Focus on: SASS organization, theming, and creative effects
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: start;
+
+    .booking-info{
+        line-height: 2rem;
+    }
 }
 
 .booking-form {
@@ -358,7 +410,7 @@ Focus on: SASS organization, theming, and creative effects
     }
 
     &.secondary {
-        background: transparent;
+        background: $ocean-green;
         color: white;
         border: 2px solid white;
 
@@ -380,6 +432,8 @@ Focus on: SASS organization, theming, and creative effects
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 2rem;
         margin-bottom: 2rem;
+        margin:2rem;
+        line-height: 2rem;
     }
 
     .footer-title {

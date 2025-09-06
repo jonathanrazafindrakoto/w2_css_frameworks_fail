@@ -1,0 +1,396 @@
+@charset "UTF-8";
+.form-base input, .form-base select, .form-base textarea {
+  font-family: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (max-width: 768px) {
+  .nested-class {
+    display: none;
+  }
+}
+.voyage-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: transform 0.3s ease;
+}
+.voyage-card:hover {
+  transform: translateY(-5px);
+}
+
+.main-header {
+  background: #1E3A8A;
+  color: white;
+  padding: 1rem 0;
+}
+.main-header .site-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-nav {
+  display: flex;
+  gap: 2rem;
+}
+.main-nav .nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+.main-nav .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.hero-section {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  padding: 4rem 0;
+  text-align: start;
+}
+.hero-section .container {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+.hero-section .hero-title {
+  font-size: 3rem;
+  color: #1E3A8A;
+  margin-bottom: 1rem;
+}
+.hero-section .hero-title p.subtitle div span {
+  color: red;
+}
+.hero-section .hero-description {
+  font-size: 1.2rem;
+  color: #1E3A8A;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.cta-button {
+  padding: 1.5rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.cta-button.primary {
+  background: #1E3A8A;
+  color: white;
+}
+.cta-button.primary:hover {
+  background: rgb(20.8928571429, 40.3928571429, 96.1071428571);
+  transform: scale(1.05);
+}
+
+.submarine {
+  position: relative;
+  width: 300px;
+  height: 120px;
+  margin: 2rem auto;
+}
+.submarine .submarine-body {
+  width: 80%;
+  height: 50px;
+  background: #FFD700;
+  border-radius: 40px;
+  position: relative;
+  padding: 1.5rem;
+}
+
+.voyages-section .container {
+  text-align: center;
+  line-height: 2rem;
+}
+.voyages-section .container .section-title {
+  color: #1E3A8A;
+  font-size: 2rem;
+}
+.voyages-section .voyage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.voyages-section .voyage-icon {
+  font-size: 2rem;
+}
+.voyages-section .voyage-title {
+  color: #1E3A8A;
+}
+.voyages-section .voyage-button {
+  background-color: #FFD700;
+  padding: 1.5rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.voyages-section .voyage-button:hover {
+  background: #ccac00;
+  transform: scale(1.05);
+}
+
+.voyage-features {
+  list-style: none;
+  padding: 0;
+}
+.voyage-features li {
+  padding: 0.5rem 0;
+}
+.voyage-features li:before {
+  content: "🌊 ";
+  margin-right: 0.5rem;
+}
+
+/*
+🎨 QUALITATIVE CHALLENGE: Yellow Submarine Theming
+
+Your mission: Make this website truly feel like a magical underwater adventure!
+
+Current issues to improve:
+- The color scheme needs more ocean/submarine theming
+- Components should be better organized with mixins and placeholders
+- Add some creative SASS features like loops or custom functions
+- Create a cohesive design system using SASS variables
+- Add submarine-themed hover effects and animations
+
+Goals for this section:
+1. REORGANIZE: Break the code into logical sections with clear comments
+2. IMPROVE COLORS: Create a cohesive underwater/submarine color palette
+3. ADD MIXINS: Create reusable mixins for common patterns
+4. FIX BUTTONS: Notice that some of the buttons are not themed or aren't showing up very well?
+5. ENHANCE INTERACTIONS: Add submarine-themed hover effects
+6. CREATIVE FEATURES: Use SASS loops, functions, or advanced features
+7. EXTRA CHALLENGE: Can you make the submarine look a bit more like a submarine?
+
+Reference the mockup: assets/yellow-submarine-mockup.png
+
+Self-reflection questions:
+- Does the site feel like an underwater adventure?
+- Are the SASS features being used effectively?
+- Is the code well-organized and maintainable?
+- Do the interactions feel magical and engaging?
+- Would other developers find this code easy to understand?
+
+Time estimate: 30 minutes
+Focus on: SASS organization, theming, and creative effects
+*/
+.crew-section {
+  padding: 4rem 0;
+  background: rgb(108.8709677419, 250.1290322581, 206.2903225806);
+}
+
+.crew-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.crew-member {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+.crew-member .crew-avatar {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+.crew-member .crew-name {
+  color: #1E3A8A;
+  margin-bottom: 0.5rem;
+}
+.crew-member .crew-role {
+  color: #059669;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.crew-member .crew-bio {
+  color: #1E3A8A;
+  line-height: 2rem;
+  font-size: 1rem;
+}
+
+.booking-section {
+  padding: 4rem 0;
+  background: #1E3A8A;
+  color: white;
+}
+
+.booking-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.booking-content .booking-info {
+  line-height: 2rem;
+}
+
+.booking-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  color: #1E3A8A;
+}
+.booking-form .form-group {
+  margin-bottom: 1.5rem;
+}
+.booking-form .form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #1E3A8A;
+}
+.booking-form .form-input,
+.booking-form .form-select,
+.booking-form .form-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+.booking-form .form-input:focus,
+.booking-form .form-select:focus,
+.booking-form .form-textarea:focus {
+  outline: none;
+  border-color: #FFD700;
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.form-button {
+  flex: 1;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.form-button.primary {
+  background: #FFD700;
+  color: #1E3A8A;
+}
+.form-button.primary:hover {
+  background: #ccac00;
+  transform: translateY(-2px);
+}
+.form-button.secondary {
+  background: #059669;
+  color: white;
+  border: 2px solid white;
+}
+.form-button.secondary:hover {
+  background: white;
+  color: #1E3A8A;
+}
+
+.main-footer {
+  background: rgb(20.8928571429, 40.3928571429, 96.1071428571);
+  color: white;
+  padding: 3rem 0 1rem;
+}
+.main-footer .footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+  margin: 2rem;
+  line-height: 2rem;
+}
+.main-footer .footer-title {
+  color: #FFD700;
+  margin-bottom: 1rem;
+}
+.main-footer .footer-links {
+  list-style: none;
+  padding: 0;
+}
+.main-footer .footer-links li {
+  margin: 0.5rem 0;
+}
+.main-footer .footer-link {
+  color: white;
+  text-decoration: none;
+}
+.main-footer .footer-link:hover {
+  color: #FFD700;
+}
+.main-footer .footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 1rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .booking-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .form-actions {
+    flex-direction: column;
+  }
+  .main-nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+/*
+========================================
+🎉 DIAGNOSTIC CHECKLIST - Are you done?
+========================================
+
+Before moving to the qualitative section, fix these issues:
+✅ Issue #1: -primary-yellow → $primary-yellow
+✅ Issue #2: Fix invalid media query nesting
+✅ Issue #3: Add missing semicolon in mixin
+✅ Issue #4: @mixin → @include for mixin usage
+✅ Issue #5: Fix undefined variable $underfined--color
+✅ Issue #6: &--hover → &:hover
+✅ Issue #7: Fix invalid selector nesting
+✅ Issue #8: @mixin → @function for function
+✅ Issue #9: Fix @extend usage
+✅ Issue #10: Move @import to top of file
+
+Run: npm run build:sass (from main directory)
+Test: cd .. && npm run test:sass
+
+Then work on the qualitative improvements!
+========================================
+*/
+
+/*# sourceMappingURL=styles.css.map */
